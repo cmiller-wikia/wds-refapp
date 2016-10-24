@@ -27,10 +27,10 @@ gulp.task('build:all', function() {
 
 gulp.task('templates:compile', function() {
   return gulp
-    .src('./templates/*.hbs')
+    .src('./handlebars/templates/*.hbs')
     .pipe(hb({
-      partials: './partials/**/*.hbs',
-      helpers: './helpers/**/*.js',
+      partials: './handlebars/partials/**/*.hbs',
+      helpers: './handlebars/helpers/**/*.js',
       data: './global.json'
     }))
     .pipe(fileInclude({prefix: '@@'}))
@@ -66,9 +66,7 @@ gulp.task('watch:all', ['build'], function() {
   return gulp.watch([
     "scss/**",
     "static/**",
-    "helpers/**",
-    "templates/**",
-    "partials/**",
+    "handlebars/**",
     "global.json"
   ],['build']);
 });
