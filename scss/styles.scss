@@ -1,0 +1,402 @@
+@import 'npm://wds-styles/scss/index.scss';
+@import '_main-navigation';
+@import 'hljs-theme';
+
+.style-guide {
+  margin: 0 auto;
+	max-width: 1024px;
+  font-family: $font-family;
+  line-height: $line-height;
+
+  h1 {
+		font-size: $typescale-size-plus-1;
+		line-height: $line-height;
+		margin-bottom: 4px;
+		margin-top: 12px;
+	}
+
+	h2 {
+		border-bottom: 1px solid $color-light-c3;
+		font-size: $typescale-size-minus-1;
+		margin-bottom: 20px;
+		padding-bottom: 1px;
+	}
+
+	section {
+		margin-top: 30px;
+	}
+
+  .main-header {
+    border-bottom: 1px solid $color-light-c3;
+    font-size: $typescale-size-plus-6;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 34px;
+    padding: 40px 30px 38px;
+    text-align: center;
+  }
+
+  .format-code {
+  	background-color: transparent;
+  	border: 0;
+  	color: $color-music;
+  }
+
+  a {
+	   color: $color-link;
+   }
+}
+
+// FIXME: Shitty specificity
+a.wds-button {
+   color: $color-white;
+}
+
+.main-content {
+	float: right;
+	margin-bottom: 80px;
+	width: 75%;
+
+	h1 {
+		font-size: $typescale-size-plus-1;
+		line-height: $line-height;
+		margin-bottom: 4px;
+		margin-top: 12px;
+	}
+
+	h2 {
+		border-bottom: 1px solid $color-light-c3;
+		font-size: $typescale-size-minus-1;
+		margin-bottom: 20px;
+		padding-bottom: 1px;
+	}
+
+	section {
+		margin-top: 30px;
+	}
+}
+
+code {
+	background-color: $color-off-white;
+	border: 1px solid $color-mist-gray;
+	line-height: $line-height;
+
+	&::before,
+	&::after {
+		content: '\00a0';
+		letter-spacing: -.25rem;
+	}
+}
+
+pre {
+	background-color: $color-off-white;
+	border: 1px solid $color-mist-gray;
+	font-size: 12px;
+	line-height: $typescale-size-minus-2;
+	margin-top: 30px;
+	max-height: 300px;
+	overflow-x: auto;
+	padding: 14px;
+
+	code {
+		border: 0;
+		color: $color-black;
+
+		&::before,
+		&::after {
+			display: none;
+		}
+	}
+}
+
+img {
+	max-width: 100%;
+}
+
+.alert-info {
+	padding-left: 26px;
+	position: relative;
+
+	.wds-icon {
+		color: $color-slate-gray;
+		left: 0;
+		position: absolute;
+		top: 5px;
+	}
+}
+
+.breakpoints-table {
+	border-spacing: 0;
+	border-collapse: collapse;
+	font-size: $typescale-size-minus-1;
+	width: 574px;
+
+	td {
+		border: 1px solid $color-off-white;
+		padding: 14px 8px;
+		vertical-align: top;
+	}
+
+	.format-code {
+		font-size: $typescale-size-minus-2;
+	}
+
+	&__header {
+		background-color: $color-off-white;
+
+		th {
+			border: 1px solid $color-off-white;
+			padding: 18px 8px;
+			text-align: left;
+		}
+	}
+}
+
+.breakpoints-visualisation {
+	margin-top: 30px;
+}
+
+.component-demo {
+	&__fullscreen {
+		align-items: center;
+		background-color: rgba($color-black, 0.5);
+		bottom: 0;
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		left: 0;
+		position: fixed;
+		right: 0;
+		top: 0;
+	}
+
+	&__standalone-wrapper {
+		overflow-x: auto;
+	}
+
+	&__standalone {
+		border: 0;
+		height: 500px;
+		min-width: 340px;
+
+		&.is-tablet {
+			min-width: 800px;
+		}
+
+		&.is-desktop {
+			min-width: 1200px;
+		}
+	}
+
+	&__close {
+		color: $color-white;
+		cursor: pointer;
+		position: fixed;
+		right: 20px;
+		top: 20px;
+		z-index: 1;
+	}
+
+	&__device {
+		display: inline-block;
+		margin-right: 20px;
+		text-align: center;
+	}
+
+	.is-hidden {
+		display: none;
+	}
+}
+
+.colors-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: -20px;
+}
+
+.color-box {
+	color: $color-dark-blue-gray;
+	font-size: $typescale-size-minus-2;
+	line-height: $line-height;
+	margin: 30px 6px 0;
+	text-align: center;
+	width: 120px;
+
+	&.is-bordered {
+		.color-box__box {
+			border: 1px solid $color-faint-gray;
+		}
+	}
+
+	&__box {
+		@include square(60px);
+
+		box-sizing: border-box;
+		margin: 0 auto 10px;
+	}
+
+	&__name {
+		font-weight: 700;
+	}
+}
+
+.typescale-line {
+	display: flex;
+
+	&__left {
+		border-right: 1px solid $color-off-white;
+		flex: 1 auto;
+		line-height: $line-height;
+		padding: 10px 20px;
+	}
+
+	&__right {
+		align-self: flex-end;
+		color: $color-dark-blue-gray;
+		flex-shrink: 0;
+		font-size: $typescale-size-minus-2;
+		padding: 10px 20px;
+		width: 220px;
+	}
+
+	&__code {
+		margin-left: 10px;
+	}
+}
+
+.typescale-size-minus-3 {
+	font-size: $typescale-size-minus-3
+}
+
+.typescale-size-minus-2 {
+	font-size: $typescale-size-minus-2
+}
+
+.typescale-size-minus-1 {
+	font-size: $typescale-size-minus-1
+}
+
+.typescale-size-base {
+	font-size: $typescale-size-base
+}
+
+.typescale-size-plus-1 {
+	font-size: $typescale-size-plus-1
+}
+
+.typescale-size-plus-2 {
+	font-size: $typescale-size-plus-2
+}
+
+.typescale-size-plus-3 {
+	font-size: $typescale-size-plus-3
+}
+
+.typescale-size-plus-4 {
+	font-size: $typescale-size-plus-4
+}
+
+.typescale-size-plus-5 {
+	font-size: $typescale-size-plus-5
+}
+
+.typescale-size-plus-6 {
+	font-size: $typescale-size-plus-6
+}
+
+.typescale-size-plus-7 {
+	font-size: $typescale-size-plus-7
+}
+.icon-box {
+	color: $color-dark-blue;
+	font-size: $typescale-size-minus-1;
+	margin-bottom: 50px;
+	text-align: center;
+	width: 100px;
+
+	&:hover .wds-icon {
+		color: $color-dark-blue;
+	}
+
+	&__icon {
+		border-bottom: solid 1px $color-light-c3;
+		height: 24px;
+		margin: 0 25px 10px;
+		padding-bottom: 17px;
+	}
+
+	.wds-icon {
+		color: $color-light-c5;
+	}
+}
+.assets-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 30px 0 -50px;
+	text-align: center;
+
+	&__align-items-left {
+		justify-content: flex-start;
+		text-align: left;
+	}
+}
+
+.main-content .wds-dropdown {
+	margin-bottom: 120px;
+
+	&__content {
+		min-width: 150px;
+	}
+}
+
+.asset-box {
+	color: $color-dark-blue;
+	font-size: $typescale-size-minus-1;
+	margin: 0 0 50px;
+
+	&.is-avatar-badge {
+		width: 125px;
+
+		.asset-box__asset {
+			height: 24px;
+		}
+	}
+
+	&.is-bordered {
+		.asset-box__asset {
+			border: 1px solid $color-light-c3;
+			padding: 14px;
+		}
+
+		&--wider .asset-box__asset {
+			padding: 24px;
+		}
+	}
+
+	&.is-single-in-line .asset-box__asset {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	&.has-dark-background .asset-box__asset {
+		background-color: $color-dark-blue-gray;
+	}
+
+	&__asset {
+		border-bottom: solid 1px $color-light-c3;
+		margin: 0 25px 10px;
+		padding-bottom: 9px;
+
+		svg {
+			display: block;
+			margin: 0 auto;
+		}
+	}
+}
+
+// THIS IS BROKEN IT SHOULD BE IN THE WDS RIGHT?
+.fixed-width-140px {
+	width: 140px;
+}

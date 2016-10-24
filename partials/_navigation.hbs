@@ -1,0 +1,12 @@
+<nav class="main-navigation">
+  <ul class="wds-list">
+    {{#each this}}
+      <li>{{title}}
+          <ul class="wds-list">
+            {{#each subsections}}
+              <li><a href="{{alias}}.html">{{title}}</a></li>
+            {{/each}}
+          </ul></li>
+    {{/each}}
+  </ul>
+</nav>

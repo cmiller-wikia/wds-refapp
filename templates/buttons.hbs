@@ -1,0 +1,95 @@
+{{> _header title="Buttons" navigation=global.navigation }}
+<p>
+	Buttons provide a way for users to interact with our applications.
+	They can contain text, icons, or both and come in three different sizes: standard, squished, and stretched.
+	To help with the CTA hierarchy on a screen buttons can be displayed as primary (filled), secondary (outlined),
+	or just text (no container). Choosing the right button style ties directly to the importance of it in relation
+	to the content around it on the screen.
+</p>
+<p>
+	The HTML <code>&lt;button&gt;</code> element represents a clickable button.
+	It provides a way for a user to interact with the application. Add <code class="format-code">.wds-button</code>
+	class to apply Fandom Design System styling. This results with a default Primary button.
+	There are two more base variants: Secondary and Text.
+</p>
+<p>
+	Passing additional <code>disabled</code> attribute will change button's styling and functionality.
+	This Boolean attribute indicates that the user cannot interact with the button.
+	Other <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Attributes">
+	valid HTML attributes</a> may be passed as well.
+</p>
+
+<section>
+	<h2 id="primary">Primary buttons</h2>
+	<p>Default version for general use.</p>
+	{{#component-demo}}
+    <button class="wds-button">Primary button</button>
+    <button disabled class="wds-button">Primary disabled</button>
+	{{/component-demo}}
+</section>
+
+<section>
+	<h2 id="secondary">Secondary buttons</h2>
+	<p>Adding class <code class="format-code">.wds-is-secondary</code> changes the button's looks. It is used to create a button that draws less user's attention.</p>
+	{{#component-demo}}
+    <button class="wds-button wds-is-secondary">Primary button</button>
+    <button disabled class="wds-button wds-is-secondary">Primary disabled</button>
+	{{/component-demo}}
+</section>
+
+<section>
+	<h2 id="text">Text buttons</h2>
+	<p>These buttons are denoted with <code class="format-code">.wds-is-text</code> class. They are the least obtrusive. Nevertheless, their paddings remain untouched, which provides the same clickable area.</p>
+	{{#component-demo}}
+    <button class="wds-button wds-is-text">Primary button</button>
+    <button disabled class="wds-button wds-is-text">Primary disabled</button>
+	{{/component-demo}}
+</section>
+
+<section>
+	<h2 id="sizes:regular">Button sizes: regular</h2>
+	<p>Size of the button of any aforementioned variant can be adjusted. These are the default sizes of the buttons—for comparison.</p>
+	{{#component-demo}}
+    <button class="wds-button">Primary</button>
+    <button class="wds-button wds-is-secondary">Secondary</button>
+    <button class="wds-button wds-is-text">Text</button>
+	{{/component-demo}}
+</section>
+
+<section>
+	<h2 id="sizes:squished">Button sizes: squished</h2>
+	<p>To make the button smaller use <code class="format-code">.wds-is-squished</code> class. This can help with fitting a button in tighter layouts.</p>
+	{{#component-demo}}
+    <button class="wds-button wds-is-squished">Primary</button>
+    <button class="wds-button wds-is-secondary wds-is-squished">Secondary</button>
+    <button class="wds-button wds-is-text wds-is-squished">Text</button>
+	{{/component-demo}}
+</section>
+
+<section>
+	<h2 id="sizes:stretched">Button sizes: stretched</h2>
+	<p>For a button greater in size use <code class="format-code">.wds-is-stretched</code> class. This may come in handy to draw more user's attention to the button and increase the clickable area around the label.</p>
+	{{#component-demo}}
+    <button class="wds-button wds-is-stretched">Primary</button>
+    <button class="wds-button wds-is-secondary wds-is-stretched">Secondary</button>
+    <button class="wds-button wds-is-text wds-is-stretched">Text</button>
+	{{/component-demo}}
+</section>
+
+<section>
+	<h2 id="other:multiline">Other usages: multiline button</h2>
+	<p>Button labels can wrap to multiple lines.</p>
+	{{#component-demo}}
+    <button class="wds-button fixed-width-140px">Multiline button label with 3rd line</button>
+	{{/component-demo}}
+</section>
+
+<section>
+	<h2 id="other:link">Other usages: link button</h2>
+	<p>When no special handlers of the click event are needed—just navigation to a certain URL, consider using an anchor tag <code>&lt;a&gt;</code> styled as a button. It is achieved by adding a <code class="format-code">.wds-button</code> class just like for the <code>&lt;button&gt;</code> element. Optionally add any other desired button classes.</p>
+	{{#component-demo}}
+    <a href="#" class="wds-button">Link button</a>
+    <a href="#" class="wds-is-secondary wds-button">Secondary link button</a>
+	{{/component-demo}}
+</section>
+{{> _footer}}

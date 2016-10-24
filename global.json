@@ -1,0 +1,84 @@
+{
+  "navigation": [
+        {
+            "title": "Overview",
+            "subsections": [
+              {
+                "alias": "index",
+                "title": "Getting Started"
+              },
+              {
+                "alias": "contributing",
+                "title": "Contributing"
+              },
+              {
+                "alias": "quick-start",
+                "title": "Quick Start"
+              },
+              {
+                "alias": "svg-assets",
+                "title": "SVG Assets"
+              }
+            ]
+        },
+        {
+            "title": "Base Styles",
+            "subsections": [
+              {
+                "alias": "breakpoints",
+                "title": "Breakpoints"
+              },
+              {
+                "alias": "colors",
+                "title": "Colors"
+              },
+              {
+                "alias": "typography",
+                "title": "Typography"
+              }
+            ]
+        },
+        {
+            "title": "Components",
+            "subsections": [
+              {
+                "alias": "component-assets",
+                "title": "Assets"
+              },
+              {
+                "alias": "avatars",
+                "title": "Avatars"
+              },
+              {
+                "alias": "buttons",
+                "title": "Buttons"
+              },
+              {
+                "alias": "dropdowns",
+                "title": "Dropdowns"
+              },
+              {
+                "alias": "lists",
+                "title": "Lists"
+              }
+            ]
+        },
+        {
+            "title": "Identity",
+            "subsections": [
+              {
+                "alias": "identity-assets",
+                "title": "Assets"
+              },
+              {
+                "alias": "global-footer",
+                "title": "Global Footer"
+              },
+              {
+                "alias": "global-navigation",
+                "title": "Global Navigation"
+              }
+            ]
+        }
+    ]
+}

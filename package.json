@@ -1,0 +1,27 @@
+{
+  "name": "wds-refapp",
+  "version": "1.0.0",
+  "description": "Reference Application for Fandom Design System",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "wds-styles": "file:../wds-styles"
+  },
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-file-include": "^1.0.0",
+    "gulp-hb": "^5.1.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "handlebars": "^4.0.5",
+    "highlightjs": "^8.7.0",
+    "node-sass": "^3.10.1",
+    "run-sequence": "^1.2.2",
+    "sassy-npm-importer": "^2.0.0"
+  }
+}
