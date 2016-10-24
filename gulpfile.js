@@ -22,7 +22,7 @@ gulp.task('clean:all', function() {
 });
 
 gulp.task('build:all', function() {
-  sequence('clean:all', ['templates:compile', 'statics:copy', 'build:css', 'highlight:js', 'highlight:css']);
+  sequence('clean:all', ['templates:compile', 'statics:copy', 'build:css']);
 })
 
 gulp.task('templates:compile', function() {
@@ -49,18 +49,6 @@ gulp.task('build:css', function() {
     .pipe(rename({ extname: ".css" }))
     .pipe(gulp.dest('./dist/styles'));
 });
-
-gulp.task('highlight:js', function() {
-  return gulp.src('node_modules/highlightjs/highlight.pack.min.js')
-    .pipe(gulp.dest('./dist/scripts'));
-});
-
-gulp.task('highlight:css', function() {
-  return gulp.src('node_modules/highlightjs/styles/default.css')
-    .pipe(rename('highlight-default.css'))
-    .pipe(gulp.dest('./dist/styles'));
-});
-
 
 gulp.task('watch:all', ['build'], function() {
   return gulp.watch([

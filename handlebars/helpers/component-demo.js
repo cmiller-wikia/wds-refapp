@@ -1,11 +1,14 @@
-var Handlebars = require('handlebars')
+var Handlebars = require('handlebars'),
+  hljs = require('highlightjs/highlight.pack.js');
 
-module.exports = function componentDemo(b) {
+
+module.exports = function componentDemo(options) {
+  var codeBlock = hljs.highlight("html", options.fn(this)).value;
   var s = ""
 
-  if (! b.hash["codeOnly"]) {
-    s += "<div class=\"component-demo__rendered\">" + b.fn(this) + "</div>";
+  if (! options.hash["codeOnly"]) {
+    s += "<div class=\"component-demo__rendered\">" + options.fn(this) + "</div>";
   }
 
-  return s + "<pre class=\"component-demo\"><code class=\"html hljs xml\">" + Handlebars.Utils.escapeExpression(b.fn(this)) + "</code></pre>";
+  return s + "<pre class=\"component-demo\"><code class=\"html hljs\">" + codeBlock + "</code></pre>";
 }
