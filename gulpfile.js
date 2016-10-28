@@ -31,7 +31,7 @@ gulp.task('templates:compile', function() {
     .pipe(hb({
       partials: './handlebars/partials/**/*.hbs',
       helpers: './handlebars/helpers/**/*.js',
-      data: './global.json'
+      data: 'data/*.json'
     }))
     .pipe(fileInclude({prefix: '@@'}))
     .pipe(rename({ extname: ".html"}))

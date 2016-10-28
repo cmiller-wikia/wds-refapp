@@ -1,0 +1,28 @@
+<div class="wds-global-footer" style="clear: both">
+	<div class="wds-global-footer__main">
+		<div class="wds-global-footer__header-wrapper">
+			<h2 class="wds-global-footer__header">
+				<a href="#">
+					{{svg_inline "company-logo" "fandom-powered-by-wikia-two-lines" class="wds-global-footer__header-logo"}}
+				</a>
+			</h2>
+		</div>
+		<div class="wds-global-footer__fandom-sections">
+			{{>footer/section data=data.fandom_overview strings=strings name='fandom-overview' parentName='fandom'}}
+			{{>footer/section data=data.follow_us strings=strings name='follow-us' parentName='fandom'}}
+		</div>
+		<div class="wds-global-footer__wikia-sections">
+			{{>footer/section data=data.company_overview strings=strings name='company-overview' parentName='wikia'}}
+			{{>footer/section data=data.site_overview strings=strings name='site-overview' parentName='wikia'}}
+			{{>footer/section data=data.community strings=strings name='community' parentName='wikia'}}
+			{{>footer/section data=data.create_wiki strings=strings name='create-wiki' parentName='wikia'}}
+			{{>footer/section data=data.community_apps strings=strings name='community-apps' parentName='wikia'}}
+			{{>footer/section data=data.advertise strings=strings name='advertise' parentName='wikia'}}
+		</div>
+	</div>
+	<div class="wds-global-footer__bottom-bar">
+		<div class="wds-global-footer__bottom-bar-row wds-has-padding">
+			Copyright 2016 Wikia Inc.
+		</div>
+	</div>
+</div>

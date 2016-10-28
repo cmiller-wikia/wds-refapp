@@ -13,6 +13,22 @@ function classAttr(className, variant) {
     : className
 }
 
+function _svg_inline(name, options) {
+  var assetPath = path.resolve(
+    require.resolve('wds-styles'),
+    "../../svg/" + name + ".svg");
+  var asset = fs.readFileSync(assetPath);
+  var classes = classAttr(options.hash["class"], options.hash["variant"]);
+
+  var ele = jsdom("").createElement('div')
+  ele.innerHTML = asset
+  if (classes) { ele.firstChild.setAttribute("class", classes); }
+  if (options.hash["width"]) { ele.firstChild.setAttribute("width", options.hash["width"]); }
+  if (options.hash["height"]) { ele.firstChild.setAttribute("height", options.hash["height"]); }
+
+  return new Handlebars.SafeString(ele.innerHTML);
+}
+
 module.exports = {
   svg_ref: function(category, name, options) {
     return new Handlebars.SafeString("<svg class=\"" +
@@ -22,18 +38,10 @@ module.exports = {
   },
 
   svg_inline: function(category, name, options) {
-    var assetPath = path.resolve(
-      require.resolve('wds-styles'),
-      "../../svg/" + assetName(category, name, options.hash["variant"]) + ".svg");
-    var asset = fs.readFileSync(assetPath);
-    var classes = classAttr(options.hash["class"], options.hash["variant"]);
+    return _svg_inline(assetName(category, name, options.hash["variant"]), options);
+  },
 
-    var ele = jsdom("").createElement('div')
-    ele.innerHTML = asset
-    if (classes) { ele.firstChild.setAttribute("class", classes); }
-    if (options.hash["width"]) { ele.firstChild.setAttribute("width", options.hash["width"]); }
-    if (options.hash["height"]) { ele.firstChild.setAttribute("height", options.hash["height"]); }
-
-    return new Handlebars.SafeString(ele.innerHTML);
+  svg_inline_raw: function(name, options) {
+    return _svg_inline(name, options);
   }
 }
