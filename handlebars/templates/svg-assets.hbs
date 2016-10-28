@@ -1,5 +1,4 @@
 {{> _header title="SVG Assets" navigation=global.navigation }}
-{{> _svg-include name='icons'}}
 
 <p>There are two ways to use the Design System SVGs in a client application:</p>
 <ul>
@@ -25,7 +24,7 @@
 	{{/component-demo}}
 
 <p class="alert-info">
-	{{wds-icon name='alert' class='wds-icon-small'}}
+	{{svg_inline 'icons' 'alert' class="wds-icon" variant='small'}}
 	Note the inline style which is required to hide the sprite while keeping gradients and masks working properly.
 </p>
 

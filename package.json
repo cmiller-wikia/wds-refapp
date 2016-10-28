@@ -20,6 +20,7 @@
     "gulp-sass": "^2.3.2",
     "handlebars": "^4.0.5",
     "highlightjs": "^8.7.0",
+    "node-jsdom": "^3.1.5",
     "node-sass": "^3.10.1",
     "run-sequence": "^1.2.2",
     "sassy-npm-importer": "^2.0.0"

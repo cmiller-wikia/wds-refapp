@@ -1,7 +1,4 @@
 {{> _header title="Assets" navigation=global.navigation }}
-{{> _svg-include name='avatar-badges'}}
-{{> _svg-include name='icons'}}
-{{> _svg-include name='company'}}
 <p>
 	Defined as an XML-based vector format for 2d graphics with support for interactivity and animation,
 	SVGs are the primary file type for icons and non image-based assets used across our platforms.
@@ -195,12 +192,12 @@
 	</p>
 
 	<div class="assets-wrapper">
-		{{>_asset-box group='company-store' name='appstore' height=50}}
-		{{>_asset-box group='company-store' name='googleplay' height=50}}
+		{{>_asset-box group='company-store' name='appstore' height=50 width=150}}
+		{{>_asset-box group='company-store' name='googleplay' height=50 width=150}}
 	</div>
 
 	{{#component-demo codeOnly=true}}
-{{svg 'wds-company-store-appstore'}}
+{{svg_ref 'company-store' 'appstore'}}
 	{{/component-demo}}
 </section>
 
@@ -225,7 +222,7 @@
 	</div>
 
 	{{#component-demo codeOnly=true}}
-{{svg 'wds-avatar-badges-admin'}}
+{{svg_ref 'avatar-badges' 'admin'}}
 	{{/component-demo}}
 </section>
 {{> _footer}}
