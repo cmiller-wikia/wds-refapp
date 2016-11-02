@@ -1,18 +1,22 @@
+const cls_dropdown = "wds-dropdown"
+const cls_active = "wds-is-active"
+const selector_dropdown = "." + cls_dropdown;
+
 function dropdowns(ele) {
-  return ele.querySelectorAll(".wds-dropdown");
+  return ;
 }
 
 function closeAllBut(ele) {
-  var dds = dropdowns(document);
+  var dds = ele.querySelectorAll(selector_dropdown);
   for (var i = 0, l = dds.length; i < l; i++) {
     if (dds[i] != ele) {
-      dds[i].classList.remove("wds-is-active");
+      dds[i].classList.remove(cls_active);
     }
   }
 }
 
 function findDropdown(ele) {
-  if (ele.classList.contains("wds-dropdown")) {
+  if (ele.classList.contains(cls_dropdown)) {
     return ele;
   } else if (ele.parentElement) {
     return findDropdown(ele.parentElement);
@@ -26,7 +30,7 @@ export function init() {
     var dd = findDropdown(ev.target);
     if (dd) {
       closeAllBut(dd);
-      dd.classList.toggle("wds-is-active");
+      dd.classList.toggle(cls_active);
       ev.stopPropagation();
     } else {
       closeAllBut(null);
