@@ -9,20 +9,26 @@ gulp.task('watch', ['watch:all']);
 // IMPLEMENTATION
 
 var
+    babelify     = require('babelify'),
+    browserify   = require('browserify'),
+    buffer       = require('vinyl-buffer'),
     del          = require('del'),
     hb           = require('gulp-hb'),
     fileInclude  = require('gulp-file-include')
     sassImporter = require('sassy-npm-importer')
     rename       = require('gulp-rename'),
     scss         = require('gulp-sass'),
-    sequence     = require('run-sequence');
+    sequence     = require('run-sequence'),
+    source       = require('vinyl-source-stream'),
+    sourcemaps   = require('gulp-sourcemaps'),
+    uglify       = require('gulp-uglify');
 
 gulp.task('clean:all', function() {
   return del('dist');
 });
 
 gulp.task('build:all', function() {
-  sequence('clean:all', ['templates:compile', 'statics:copy', 'build:css']);
+  sequence('clean:all', ['templates:compile', 'statics:copy', 'build:css', 'build:js']);
 })
 
 gulp.task('templates:compile', function() {
@@ -50,11 +56,27 @@ gulp.task('build:css', function() {
     .pipe(gulp.dest('./dist/styles'));
 });
 
+gulp.task('build:js', function() {
+  var bundler = browserify({ entries: "js/wds.js", standalone: 'WDS', debug: true});
+
+  return bundler
+    .transform("babelify", { presets: ['es2015']} )
+    .bundle()
+    .pipe(source('wds.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: true}))
+        // Add transformation tasks to the pipeline here.
+        .pipe(uglify())
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('./dist/js'));
+});
+
 gulp.task('watch:all', ['build'], function() {
   return gulp.watch([
     "scss/**",
     "static/**",
     "handlebars/**",
+    "js/**",
     "global.json"
   ],['build']);
 });
