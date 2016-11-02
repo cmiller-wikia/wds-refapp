@@ -1,16 +1,16 @@
 <section class="wds-global-footer__{{parentName}}-section wds-is-{{name}}">
-{{#if data.header.title}}
-	<h3 class="wds-global-footer__section-header">{{i18n strings data.header.title.key}}</h3>
+{{#if section.header.title}}
+	<h3 class="wds-global-footer__section-header">{{i18n strings section.header.title.key}}</h3>
 {{/if}}
 
-{{#if data.description}}
-	<span class="wds-global-footer__section-description">{{i18n strings data.description.key}}</span>
+{{#if section.description}}
+	<span class="wds-global-footer__section-description">{{i18n strings section.description.key}}</span>
 {{/if}}
 
 <ul class="wds-global-footer__links-list">
-	{{#each data.links as |link|}}
+	{{#each section.links as |link|}}
 		<li class="wds-global-footer__links-list-item">
-      {{> (concat 'footer/' link.type) data=link strings=../strings}}
+      {{> (concat 'footer/' link.type) link=link strings=../strings}}
 		</li>
 	{{/each}}
 </ul>

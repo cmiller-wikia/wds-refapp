@@ -1,0 +1,47 @@
+<div class="wds-global-navigation">
+<div class="wds-global-navigation__content-bar">
+	{{#if data.logo.header}}
+		<a href="{{data.logo.header.href}}" class="wds-global-navigation__logo">
+			{{! available class names: wds-is-wds-company-logo-fandom wds-is-wds-company-logo-powered-by-wikia wds-is-wds-company-logo-wikia-org}}
+			{{svg_inline_raw data.logo.header.image-data.name class=(concat 'wds-global-navigation__logo-image wds-is-' data.logo.module.main.image-data.name)}}
+			{{#if data.logo.module.tagline}}
+				{{svg_inline_raw data.logo.module.tagline.image-data.name class=(concat 'wds-global-navigation__logo-image wds-is-' data.logo.module.tagline.image-data.name)}}
+			{{/if}}
+		</a>
+	{{/if}}
+	<div class="wds-global-navigation__links-and-search">
+		{{#each data.fandom_overview.links as |link|}}
+		  {{> navbar/link-branded link=link strings=../strings}}
+		{{/each}}
+		{{> navbar/links
+			links=data.wikis
+			type='wikis-menu'
+		}}
+	</div>
+	{{#if data.user}}
+		{{> navbar/links
+			dropdownRightAligned=true
+			links=data.user
+			type='user-menu'
+			strings=strings
+		}}
+	{{else if data.anon}}
+		{{wds-global-navigation.account-navigation
+			model=model.anon
+		}}
+	{{/if}}
+	<div class="wds-global-navigation__start-a-wiki">
+		<a href="{{data.create_wiki.header.href}}" class="wds-global-navigation__start-a-wiki-button wds-button wds-is-squished wds-is-secondary">
+			<span class="wds-global-navigation__start-a-wiki-caption">{{i18n strings data.create_wiki.header.title.key}}</span>
+			{{svg_inline 'icons' 'plus' class='wds-global-navigation__start-a-wiki-icon wds-icon'}}
+		</a>
+	</div>
+</div>
+{{#if data.partner_slot}}
+	<div class="wds-global-navigation__partner-slot">
+		<a href="{{data.partner_slot.href}}" class="wds-global-navigation__partner-slot-link">
+			<img class="wds-global-navigation__partner-slot-image" src="{{data.partner_slot.image-data.url}}" alt="{{data.partner_slot.title.value}}">
+		</a>
+	</div>
+{{/if}}
+</div>

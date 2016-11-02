@@ -1,0 +1,15 @@
+{{#if links.header}}
+	{{> navbar/dropdown
+		dropdownRightAligned=dropdownRightAligned
+		links=links
+		type=type
+		strings=strings
+	}}
+{{else}}
+	{{#each links.links as |link|}}
+		{{> navbar/link
+			link=link
+			strings=../strings
+		}}
+	{{/each}}
+{{/if}}
