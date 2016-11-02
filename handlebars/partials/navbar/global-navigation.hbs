@@ -17,6 +17,12 @@
 			links=data.wikis
 			type='wikis-menu'
 		}}
+		{{> navbar/search
+			module=data.search.module
+			activateSearch='activateSearch'
+			deactivateSearch='deactivateSearch'
+			strings=strings
+		}}
 	</div>
 	{{#if data.user}}
 		{{> navbar/links
@@ -26,7 +32,7 @@
 			strings=strings
 		}}
 	{{else if data.anon}}
-		{{wds-global-navigation.account-navigation
+		{{> navbar/account-navigation
 			model=model.anon
 		}}
 	{{/if}}
