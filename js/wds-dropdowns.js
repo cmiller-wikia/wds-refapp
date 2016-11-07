@@ -1,5 +1,7 @@
-const cls_dropdown = "wds-dropdown"
-const cls_active = "wds-is-active"
+import * as utils from './wds-utils';
+
+const cls_dropdown = "wds-dropdown";
+const cls_active = "wds-is-active";
 const selector_dropdown = "." + cls_dropdown;
 
 function closeAllBut(ele) {
@@ -11,19 +13,9 @@ function closeAllBut(ele) {
   }
 }
 
-function findDropdown(ele) {
-  if (ele.classList.contains(cls_dropdown)) {
-    return ele;
-  } else if (ele.parentElement) {
-    return findDropdown(ele.parentElement);
-  } else {
-    return null;
-  }
-}
-
 export function init() {
   document.addEventListener('click', (ev) => {
-    var dd = findDropdown(ev.target);
+    var dd = utils.ancestorByClass(ev.target, cls_dropdown);
     if (dd) {
       closeAllBut(dd);
       dd.classList.toggle(cls_active);
