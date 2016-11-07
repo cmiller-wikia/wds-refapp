@@ -14,9 +14,9 @@ var
     buffer       = require('vinyl-buffer'),
     del          = require('del'),
     hb           = require('gulp-hb'),
-    fileInclude  = require('gulp-file-include')
-    sassImporter = require('sassy-npm-importer')
+    fileInclude  = require('gulp-file-include'),
     rename       = require('gulp-rename'),
+    sassImporter = require('sassy-npm-importer'),
     scss         = require('gulp-sass'),
     sequence     = require('run-sequence'),
     source       = require('vinyl-source-stream'),
