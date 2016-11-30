@@ -7,3 +7,5 @@ Module dependency currently dodgily hacked together with relative paths, so:
 * ``npm install``
 * ``gulp watch``
 * Open ``dist/index.html``
+
+(2016-11-08 - gulp watch currently broken by interaction with browserify. Just gulp build for now)

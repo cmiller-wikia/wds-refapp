@@ -13,10 +13,10 @@ var
     browserify   = require('browserify'),
     buffer       = require('vinyl-buffer'),
     del          = require('del'),
-    hb           = require('gulp-hb'),
     fileInclude  = require('gulp-file-include')
-    sassImporter = require('sassy-npm-importer')
+    hb           = require('gulp-hb'),
     rename       = require('gulp-rename'),
+    sassImporter = require('sassy-npm-importer')
     scss         = require('gulp-sass'),
     sequence     = require('run-sequence'),
     source       = require('vinyl-source-stream'),
@@ -27,8 +27,8 @@ gulp.task('clean:all', function() {
   return del('dist');
 });
 
-gulp.task('build:all', function() {
-  sequence('clean:all', ['templates:compile', 'statics:copy', 'build:css', 'build:js']);
+gulp.task('build:all', ["clean:all"], function() {
+  sequence(['templates:compile', 'statics:copy', 'build:css', 'build:js']);
 })
 
 gulp.task('templates:compile', function() {
@@ -65,18 +65,16 @@ gulp.task('build:js', function() {
     .pipe(source('wds.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
-        // Add transformation tasks to the pipeline here.
-        .pipe(uglify())
+    .pipe(uglify())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./dist/js'));
 });
 
-gulp.task('watch:all', ['build'], function() {
+gulp.task('watch:all', [ ], function() {
   return gulp.watch([
     "scss/**",
     "static/**",
     "handlebars/**",
-    "js/**",
-    "global.json"
-  ],['build']);
+    "js/**"
+  ],['build:all']);
 });

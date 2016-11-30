@@ -1,10 +1,5 @@
 {{#if links.header}}
-	{{> navbar/dropdown
-		dropdownRightAligned=dropdownRightAligned
-		links=links
-		type=type
-		strings=strings
-	}}
+	{{global-nav-dropdown links type strings}}
 {{else}}
 	{{#each links.links as |link|}}
 		{{> navbar/link
