@@ -13,10 +13,10 @@ var
     browserify   = require('browserify'),
     buffer       = require('vinyl-buffer'),
     del          = require('del'),
-    fileInclude  = require('gulp-file-include')
     hb           = require('gulp-hb'),
+    fileInclude  = require('gulp-file-include'),
     rename       = require('gulp-rename'),
-    sassImporter = require('sassy-npm-importer')
+    sassImporter = require('sassy-npm-importer'),
     scss         = require('gulp-sass'),
     sequence     = require('run-sequence'),
     source       = require('vinyl-source-stream'),
